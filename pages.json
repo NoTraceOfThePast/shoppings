@@ -1,5 +1,5 @@
 {
-  "pages": [ {
+  "pages": [{
     "path": "pages/home/home",
     "style": {
       "navigationBarTitleText": "",
@@ -29,6 +29,7 @@
   }],
 
   "tabBar": {
+    "selectedColor": "#C00000",
     "list": [{
         "pagePath": "pages/home/home",
         "text": "首页",
