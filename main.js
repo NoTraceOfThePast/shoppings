@@ -2,6 +2,7 @@
 // #ifndef VUE3
 import Vue from 'vue'
 import App from './App'
+import {$http} from '@escook/request-miniprogram'
 
 Vue.config.productionTip = false
 
@@ -23,3 +24,23 @@ export function createApp() {
   }
 }
 // #endif
+uni.$http=$http
+$http.baseUrl='https://api-ugo-web.itheima.net'
+$http.beforeRequest = function (options) {
+  // do somethimg...
+  uni.showLoading({
+    title:'数据加载中'
+  })
+}
+// 请求完成之后做一些事情
+$http.afterRequest = function () {
+  // do something...
+  uni.hideLoading()
+}
+uni.$showMsg=function(title='请求数据失败',duration=2000){
+  uni.showToast({
+    title,
+    duration,
+    icon:'none'
+  })
+}
